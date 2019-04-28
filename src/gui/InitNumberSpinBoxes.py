@@ -2,12 +2,14 @@ from PyQt5.QtWidgets import QSpinBox, QLabel
 from PyQt5.QtWidgets import QWidget, QVBoxLayout
 
 """
+    class InitNumberSpinBoxes(QWidget)  
+    
     Class responsible for a own modifications gui elements 
     in left panel main widget
     
-    params:
-        @VNumber - (QtWidget.QSpinBox) number of victim on begin
-        @PNumber - (QtWidget.QSpinBox) number of predators on begin
+    @params:
+        #.VNumber - (QtWidget.QSpinBox) number of victim on begin
+        #.@PNumber - (QtWidget.QSpinBox) number of predators on begin
     
 """
 

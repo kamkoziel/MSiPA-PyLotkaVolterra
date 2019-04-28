@@ -1,7 +1,7 @@
 from PyQt5.QtWidgets import QApplication, QMainWindow, QMenu, QVBoxLayout, QSizePolicy
 from PyQt5.QtWidgets import  QAction, qApp, QDialog
 from PyQt5.QtGui import QIcon
-from gui.mainWidget import *
+from gui.MainWidget import *
 
 class App(QMainWindow):
     def __init__(self):
