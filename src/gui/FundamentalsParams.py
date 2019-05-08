@@ -19,6 +19,8 @@ class FundamentalParams(QWidget):
         self.initUI()
 
     def initUI(self):
+
+        #TODO nie spojne nazyw pól z nazwami parametór równanie- popraw
         self.labela = QLabel("Rozrodczosc ofiar - a", self)
         self.aSpinBox = QSpinBox()
         self.aSpinBox.setStyleSheet("background-color: #2d3847; color: white")

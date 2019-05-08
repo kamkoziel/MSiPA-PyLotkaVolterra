@@ -1,5 +1,6 @@
 from PyQt5.QtWidgets import QTabWidget, QVBoxLayout, QWidget
 from src.plots.plotCanvas import PlotCanvas
+from src.plots.plotPopulationEvolution import PlotPopulationEvolution
 
 class PlotTabWidget(QWidget):
 
@@ -8,7 +9,7 @@ class PlotTabWidget(QWidget):
         self.setStyleSheet("background: #2d3847; color: white;")
 
         self.plot1 = PlotCanvas(self)
-        self.plot2 = PlotCanvas()
+        self.plot2 = PlotPopulationEvolution()
         self.plot3 = PlotCanvas()
         self.plot4 = PlotCanvas(self, width=5, height=4)
 
