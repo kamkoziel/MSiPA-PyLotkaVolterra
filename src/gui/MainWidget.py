@@ -48,8 +48,8 @@ class MainWidget(QWidget):
     def onClick(self):
         self.basicModel= LVmodel()
         self.basicModel.setInitialonditions(self.leftPanel.initNums.VNumber.value(), self.leftPanel.initNums.PNumber.value())
-        self.basicModel.setParamsValues(self.leftPanel.fundParams.aSpinBox.value(),self.leftPanel.fundParams.bSpinBox.value(),
-                                        self.leftPanel.fundParams.dSpinBox.value(),self.leftPanel.fundParams.cSpinBox.value())
+        self.basicModel.setParamsValues(self.leftPanel.fundParams.rSpinBox.value(),self.leftPanel.fundParams.sSpinBox.value(),
+                                        self.leftPanel.fundParams.aSpinBox.value(),self.leftPanel.fundParams.bSpinBox.value())
         self.basicModel.setSimulationTime(0,15,1000)
         self.basicModel.exportFigToPNG()
 

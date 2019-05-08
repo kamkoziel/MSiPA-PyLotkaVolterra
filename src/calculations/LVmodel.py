@@ -4,6 +4,10 @@ from scipy.integrate.odepack import odeint
 #from numpy.core._multiarray_umath import ndarray
 from sympy import *
 import pylab as p
+"""
+TODO generowanie wykresu fazowego
+
+"""
 
 
 class LVmodel():

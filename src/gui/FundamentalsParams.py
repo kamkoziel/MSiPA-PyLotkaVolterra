@@ -20,37 +20,37 @@ class FundamentalParams(QWidget):
 
     def initUI(self):
 
-        #TODO nie spojne nazyw pól z nazwami parametór równanie- popraw
-        self.labela = QLabel("Rozrodczosc ofiar - a", self)
+        #TODO ewentualnie nazwy pol _spinBox do zmiany
+        self.labela = QLabel("Rozrodczosc ofiar - r", self)
+        self.rSpinBox = QSpinBox()
+        self.rSpinBox.setStyleSheet("background-color: #2d3847; color: white")
+        self.rSpinBox.setValue(1)
+
+        self.labelb = QLabel("Śmiertelność ofiar (skuteczność polowań) - a", self)
         self.aSpinBox = QSpinBox()
         self.aSpinBox.setStyleSheet("background-color: #2d3847; color: white")
-        self.aSpinBox.setValue(1)
+        self.aSpinBox.setValue(2)
 
-        self.labelb = QLabel("Śmiertelność ofiar - b", self)
+        self.labelc = QLabel("Śmiertelność drapiezników - s", self)
+        self.sSpinBox = QSpinBox()
+        self.sSpinBox.setStyleSheet("background-color: #2d3847; color: white")
+        self.sSpinBox.setValue(3)
+
+        self.labeld = QLabel("Część upolowanych ofiar \nprzeznaczona na reprodukcję rapieżników - b", self)
         self.bSpinBox = QSpinBox()
         self.bSpinBox.setStyleSheet("background-color: #2d3847; color: white")
-        self.bSpinBox.setValue(2)
-
-        self.labelc = QLabel("Śmiertelność drapiezników - c", self)
-        self.cSpinBox = QSpinBox()
-        self.cSpinBox.setStyleSheet("background-color: #2d3847; color: white")
-        self.cSpinBox.setValue(3)
-
-        self.labeld = QLabel("Śmiertelność ofiar - d", self)
-        self.dSpinBox = QSpinBox()
-        self.dSpinBox.setStyleSheet("background-color: #2d3847; color: white")
-        self.dSpinBox.setValue(1)
+        self.bSpinBox.setValue(1)
 
         fundamentalParamsLV = QVBoxLayout(self)
         fundamentalParamsLV.addWidget(self.labela)
-        fundamentalParamsLV.addWidget(self.aSpinBox)
+        fundamentalParamsLV.addWidget(self.rSpinBox)
         fundamentalParamsLV.addSpacing(20)
         fundamentalParamsLV.addWidget(self.labelb)
-        fundamentalParamsLV.addWidget(self.bSpinBox)
+        fundamentalParamsLV.addWidget(self.aSpinBox)
         fundamentalParamsLV.addSpacing(20)
         fundamentalParamsLV.addWidget(self.labelc)
-        fundamentalParamsLV.addWidget(self.cSpinBox)
+        fundamentalParamsLV.addWidget(self.sSpinBox)
         fundamentalParamsLV.addSpacing(20)
         fundamentalParamsLV.addWidget(self.labeld)
-        fundamentalParamsLV.addWidget(self.dSpinBox)
+        fundamentalParamsLV.addWidget(self.bSpinBox)
         fundamentalParamsLV.addStretch(1)
