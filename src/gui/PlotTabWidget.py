@@ -1,6 +1,8 @@
-from PyQt5.QtWidgets import QTabWidget, QVBoxLayout, QWidget
+from PyQt5.QtWidgets import QTabWidget, QVBoxLayout, QHBoxLayout, QWidget
 from src.plots.plotCanvas import PlotCanvas
 from src.plots.plotPopulationEvolution import PlotPopulationEvolution
+
+from src.gui.tabWidget import tabWidget
 
 class PlotTabWidget(QWidget):
 
@@ -8,10 +10,10 @@ class PlotTabWidget(QWidget):
         QWidget.__init__(self, parent=parent)
         self.setStyleSheet("background: #2d3847; color: white;")
 
-        self.plot1 = PlotCanvas(self)
-        self.plot2 = PlotPopulationEvolution()
-        self.plot3 = PlotCanvas()
-        self.plot4 = PlotCanvas(self, width=5, height=4)
+        self.plot1 = tabWidget()
+        self.plot2 = tabWidget()
+        self.plot3 = tabWidget()
+        self.plot4 = tabWidget()
 
         # Initialize tab screen
         self.tabs = QTabWidget()
@@ -26,6 +28,9 @@ class PlotTabWidget(QWidget):
                                             border-color: #2d3847; }
                                     QTabBar::tab:selected {background-color: #192028; color: white;}
                                     QTabBar::tab:hover {background-color: #151B21; color: white;}""")
+
+
+
 
         # Add tabs
         self.tabs.addTab(self.plot1, "Tab 1")

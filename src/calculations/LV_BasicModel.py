@@ -1,16 +1,16 @@
 import numpy as np
 from scipy.integrate.odepack import odeint
-#from numpy import array
-#from numpy.core._multiarray_umath import ndarray
-from sympy import *
 import pylab as p
-"""
-TODO generowanie wykresu fazowego
-
-"""
 
 
-class LVmodel():
+#    TODO  |
+#         \/
+#     generowanie wykresu fazowego
+
+
+
+
+class LV_BasicModel():
     #initialCondition: np.ndarray
 
     def __init__(self,r = 1, s = 0.1,a = 1.5,b = 0.75):
@@ -26,11 +26,6 @@ class LVmodel():
         # stability points where right side of expr is equal 0
         self.X_f0 = np.array([0., 0.])
         self.X_f1 = np.array([self.s / (self.b * self.a), self.r / self.a])
-        # all(dX_dt(X_f0) == zeros(2)) and all(dX_dt(X_f1) == zeros(2))  # => True
-
-        #self.A_f0 = d2X_dt2(X_f0)
-
-
 
     def setParamsValues(self,r,s,a,b):
         self.r = r
@@ -90,6 +85,3 @@ class LVmodel():
         p.ylabel('population')
         p.title('Evolution of fox and rabbit populations')
         f1.savefig('rabbits_and_foxes_1.png')
-
-
-        # jackMatrix.subs([(V, zeroPoints[0][0]), (P, zeroPoints[0][1])]).eigenvals()

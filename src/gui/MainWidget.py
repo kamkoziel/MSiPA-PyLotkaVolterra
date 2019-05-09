@@ -1,11 +1,9 @@
-from PyQt5.QtWidgets import QHBoxLayout, QVBoxLayout, QWidget, QGroupBox
-from PyQt5.QtWidgets import QSpinBox, QLabel, QPushButton, QStackedWidget
-from src.plots.plotCanvas import *
+from PyQt5.QtWidgets import QHBoxLayout, QWidget
 from PyQt5.QtCore import pyqtSlot
 from src.gui.LeftPanel import LeftPanel
 from src.gui.PlotTabWidget import PlotTabWidget
 
-from src.calculations.LVmodel import LVmodel
+from src.calculations.LV_BasicModel import LV_BasicModel
 
 """
     Class responsible for a main widget 
@@ -32,7 +30,6 @@ class MainWidget(QWidget):
         self.setGeometry(self.left, self.top, self.width, self.height)
 
         self.tabPanel = PlotTabWidget()
-        #self.m.move(0, 0)
 
         self.leftPanel = LeftPanel()
         self.leftPanel.mainButton.clicked.connect(self.onClick)
@@ -44,9 +41,9 @@ class MainWidget(QWidget):
 
 
 
-    #@pyqtSlot()
+    @pyqtSlot()
     def onClick(self):
-        self.basicModel= LVmodel()
+        self.basicModel= LV_BasicModel()
         self.basicModel.setInitialonditions(self.leftPanel.initNums.VNumber.value(), self.leftPanel.initNums.PNumber.value())
         self.basicModel.setParamsValues(self.leftPanel.fundParams.rSpinBox.value(),self.leftPanel.fundParams.sSpinBox.value(),
                                         self.leftPanel.fundParams.aSpinBox.value(),self.leftPanel.fundParams.bSpinBox.value())

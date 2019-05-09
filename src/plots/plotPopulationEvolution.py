@@ -30,7 +30,8 @@ class PlotPopulationEvolution(PlotCanvas):
         ax.plot(self.time, self.predators, 'r-', label='Predators')
         ax.grid()
         ax.legend(loc='best')
-        #ax.xlabel('time')
-        #ax.ylabel('population')
+        ax.set_xlabel("Time")
+        ax.set_ylabel('Population')
         ax.set_title('PyQt Matplotlib Example')
+
         self.draw()
