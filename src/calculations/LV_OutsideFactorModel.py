@@ -3,64 +3,68 @@ from numpy.core._multiarray_umath import ndarray
 from scipy.integrate.odepack import odeint
 import pylab as p
 from src.calculations.LV_BasicModel import LV_BasicModel
+
 """
 TODO generowanie wykresu fazowego
 
 """
+#TODO check it all is posible to good work
 
-class LV_LimitedCaptionModel(LV_BasicModel):
+
+class LV_OutsideFactorModel(LV_BasicModel):
     X_f0: ndarray
     X_f1: ndarray
     X_f2: ndarray
+    time: ndarray
 
-    #initialCondition: np.ndarray
+    # initialCondition: np.ndarray
 
-    def __init__(self,r = 1, s = 0.1,a = 1.5,b = 0.75, K=900):
+    def __init__(self,r=1, s=0.1, a=1.5, b=0.75, K=100, h=0.6, g=0.8):
 
-        self.r, self.s, self.a, self.b ,self.K = r,s,a,b,K
+        self.r, self.s, self.a, self.b, self.K, self.g, self.h = r, s, a, b, K, g, h
         self.time = np.linspace(0, 1000, 100)
         self.initialCondition = np.array([10, 5])
 
         # stability points where right side of expr is equal 0
         self.X_f0 = np.array([0., 0.])
-        self.X_f1 = np.array([K,0])
-        self.X_f2 = np.array([self.s / (self.b * self.a),
-                              (self.r*self.s-self.K*self.a*self.b*self.r)/ (self.K*self.a**2*self.b)])
+        self.X_f1 = np.array([((self.K*(self.r - self.h))/self.r), 0])
+        self.X_f2 = np.array([(self.s + self.g)/self.a*self.b,
+                              - (self.r*self.s+self.g*self.r-self.K*self.a*self.b*self.r+self.K*self.a*self.b*self.h) / (self.K * self.a ** 2 * self.b)])
 
-
-    def setParamsValues(self,r,s,a,b,K):
+    def setParamsValues(self,r=1, s=0.1, a=1.5, b=0.75, K=100, h=0.8, g=0.6):
         self.r = r
         self.s = s
         self.a = a
         self.b = b
         self.K = K
+        self.g = g
+        self.h = h
 
-    #not important propably for drop
-    def switch_state_point(self,pointNum):
+    # not important propably for drop
+    def switch_state_point(self, pointNum):
         switcher = {
             0: self.X_f0,
             1: self.X_f1,
             2: self.X_f2
         }
-        return switcher.get(pointNum % 3,"nothing")
+        return switcher.get(pointNum % 3, "nothing")
 
-    def updateStabilityPoints(self,r,s,a,b,K):
+    def updateStabilityPoints(self, r, s, a, b, K, h, g):
+        self.setParamsValues(r, s, a, b, K, h, g)
 
-        self.setParamsValues(r,s,a,b,K)
-
-        self.X_f1 = np.array([K, 0])
-        self.X_f2 = np.array([self.s / (self.b * self.a),
-                              (self.r * self.s - self.K * self.a * self.b * self.r) / (self.K * self.a ** 2 * self.b)])
+        self.X_f1 = np.array([((self.K * (self.r - self.h)) / self.r), 0])
+        self.X_f2 = np.array([(self.s + self.g) / self.a * self.b,
+                              - (self.r * self.s + self.g * self.r - self.K * self.a * self.b * self.r + self.K * self.a * self.b * self.h) / (self.K * self.a ** 2 * self.b)])
+        print('Update stab points....')
 
     def dX_dt(self, X, t=0):
-        return np.array([self.r * X[0]*(1 - (X[0]/self.K)) - self.a * X[0] * X[1],
-                      -self.s * X[1] + self.b * self.a * X[0] * X[1]])
-
+        return np.array([self.r * X[0] * (1 - (X[0] / self.K)) - self.a * X[0] * X[1]+self.h * X[0],
+                         -(self.s - self.g) * X[1] + self.b * self.a * X[0] * X[1]])
 
     def d2X_dt2(self, X, t=0):
         """ Return the Jacobian matrix evaluated in X. """
-        return np.array([[(-(2*X[0]-self.K)*self.r+self.K*self.a*X[1])/self.K, - self.a * X[0]],
-                      [self.a * self.b * X[1], -self.s + self.a * self.b * X[0]]])
+        return np.array([[(-(2 * X[0] - self.K) * self.r + self.K * self.a * X[1]) / self.K, - self.a * X[0]],
+                         [self.a * self.b * X[1], -self.s-self.g + self.a * self.b * X[0]]])
 
     def createSimulation(self):
         X, infodict = odeint(self.dX_dt, self.initialCondition, self.time, full_output=True)
@@ -72,6 +76,7 @@ class LV_LimitedCaptionModel(LV_BasicModel):
         return victims, predators
 
     def exportFigToPNG(self,fileName):
+
         X = self.createSimulation()
         rabbits, foxes = X.T
         f1 = p.figure()
@@ -85,11 +90,9 @@ class LV_LimitedCaptionModel(LV_BasicModel):
         f1.savefig(fileName)
 
     def exportTrajectoriesFigToPNG(self, filename):
+
         f2 = p.figure()
 
-        # -------------------------------------------------------
-        # plot trajectories
-        # for v, col in zip(values, vcolors):
         X0 = self.X_f1  # starting point
         X = odeint(self.dX_dt, self.initialCondition, self.time)  # we don't need infodict here
         p.plot(X[:, 0], X[:, 1], lw=3.5, label='X0=(%.f, %.f)' % (self.initialCondition[0], self.initialCondition[1]))
@@ -100,7 +103,7 @@ class LV_LimitedCaptionModel(LV_BasicModel):
         # define a grid and compute direction at each point
         ymax = p.ylim(ymin=0)[1]  # get axis limits
         xmax = p.xlim(xmin=0)[1]
-        nb_points = 30
+        #nb_points = 30
 
         # x = np.linspace(0, xmax, nb_points)
         # y = np.linspace(0, ymax, nb_points)

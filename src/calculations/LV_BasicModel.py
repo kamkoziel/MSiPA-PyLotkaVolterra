@@ -60,7 +60,7 @@ class LV_BasicModel():
         self.time = np.linspace(start, stop, samplesNumber)
         return self.time
 
-    def setInitialonditions(self, V=10, P=5):
+    def setInitialConditions(self, V=10, P=5):
         self.initialCondition = np.array([V, P])
         return self.initialCondition
 
@@ -73,7 +73,7 @@ class LV_BasicModel():
         victims, predators = X.T
         return victims, predators
 
-    def exportFigToPNG(self):
+    def exportFigToPNG(self,fileName: str):
         X = self.createSimulation()
         rabbits, foxes = X.T
         f1 = p.figure()
@@ -84,4 +84,45 @@ class LV_BasicModel():
         p.xlabel('time')
         p.ylabel('population')
         p.title('Evolution of fox and rabbit populations')
-        f1.savefig('rabbits_and_foxes_1.png')
+        f1.savefig(fileName)
+
+    def exportTrajectoriesFigToPNG(self, filename):
+        # values = linspace(0.3, 0.9, 5)  # position of X0 between X_f0 and X_f1
+        # vcolors = p.cm.autumn_r(linspace(0.3, 1., len(values)))  # colors for each trajectory
+
+        f2 = p.figure()
+
+        # -------------------------------------------------------
+        # plot trajectories
+        #for v, col in zip(values, vcolors):
+        X0 = self.X_f1  # starting point
+        X = odeint(self.dX_dt, self.initialCondition , self.time)  # we don't need infodict here
+        p.plot(X[:, 0], X[:, 1], lw=3.5, label='X0=(%.f, %.f)' % (self.initialCondition[0], self.initialCondition[1]))
+        p.plot(X0[0],X0[1],'b.')
+        p.plot(self.X_f1[0], self.X_f1[1], 'r.')
+
+        # -------------------------------------------------------
+        # define a grid and compute direction at each point
+        ymax = p.ylim(ymin=0)[1]  # get axis limits
+        xmax = p.xlim(xmin=0)[1]
+        nb_points = 30
+
+        x = np.linspace(0, xmax, nb_points)
+        y = np.linspace(0, ymax, nb_points)
+
+        X1, Y1 = p.meshgrid(x, y)  # create a grid
+        DX1, DY1 = self.dX_dt([X1, Y1])  # compute growth rate on the gridt
+        M = (p.hypot(DX1, DY1))  # Norm of the growth rate
+        M[M == 0] = 1.  # Avoid zero division errors
+        DX1 /= M  # Normalize each arrows
+        DY1 /= M
+
+        p.title('Trajectories and direction fields')
+        p.quiver(X1, Y1, DX1, DY1, M, pivot='mid')
+        p.xlabel('Number of rabbits')
+        p.ylabel('Number of foxes')
+        p.legend()
+        p.grid()
+        p.xlim(0, xmax)
+        p.ylim(0, ymax)
+        f2.savefig(filename)

@@ -1,4 +1,4 @@
-from PyQt5.QtWidgets import QSpinBox, QLabel
+from PyQt5.QtWidgets import QSpinBox, QLabel, QDoubleSpinBox
 from PyQt5.QtWidgets import QWidget, QVBoxLayout
 
 """
@@ -7,7 +7,7 @@ from PyQt5.QtWidgets import QWidget, QVBoxLayout
 """
 
 
-class FundamentalParams(QWidget):
+class BasicParams(QWidget):
     def __init__(self, parent=None):
         QWidget.__init__(self, parent=parent)
         self.left = 10
@@ -22,24 +22,28 @@ class FundamentalParams(QWidget):
 
         #TODO ewentualnie nazwy pol _spinBox do zmiany
         self.labela = QLabel("Rozrodczosc ofiar - r", self)
-        self.rSpinBox = QSpinBox()
+        self.rSpinBox = QDoubleSpinBox()
         self.rSpinBox.setStyleSheet("background-color: #2d3847; color: white")
         self.rSpinBox.setValue(1)
+        self.rSpinBox.stepBy(0.1)
 
         self.labelb = QLabel("Śmiertelność ofiar (skuteczność polowań) - a", self)
-        self.aSpinBox = QSpinBox()
+        self.aSpinBox = QDoubleSpinBox()
         self.aSpinBox.setStyleSheet("background-color: #2d3847; color: white")
         self.aSpinBox.setValue(2)
+        self.aSpinBox.stepBy(0.1)
 
         self.labelc = QLabel("Śmiertelność drapiezników - s", self)
-        self.sSpinBox = QSpinBox()
+        self.sSpinBox = QDoubleSpinBox()
         self.sSpinBox.setStyleSheet("background-color: #2d3847; color: white")
         self.sSpinBox.setValue(3)
+        self.sSpinBox.stepBy(0.1)
 
         self.labeld = QLabel("Część upolowanych ofiar \nprzeznaczona na reprodukcję rapieżników - b", self)
-        self.bSpinBox = QSpinBox()
+        self.bSpinBox = QDoubleSpinBox()
         self.bSpinBox.setStyleSheet("background-color: #2d3847; color: white")
         self.bSpinBox.setValue(1)
+        self.bSpinBox.stepBy(0.1)
 
         fundamentalParamsLV = QVBoxLayout(self)
         fundamentalParamsLV.addWidget(self.labela)

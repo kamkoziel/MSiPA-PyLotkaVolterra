@@ -28,6 +28,7 @@ class App(QMainWindow):
         exitAct.triggered.connect(qApp.quit)
 
         self.statusBar().showMessage('Ready')
+
         self.statusBar().setStyleSheet("background-color: #2d3847; color: white")
 
         menubar = self.menuBar()
@@ -37,6 +38,7 @@ class App(QMainWindow):
         fileMenu.addAction(exitAct)
 
         self.MainGui = MainWidget()
+        self.statusBar().showMessage(str(self.MainGui.leftPanel.fundParams.rSpinBox.value()))
         self.setCentralWidget(self.MainGui)
 
         self.show()
