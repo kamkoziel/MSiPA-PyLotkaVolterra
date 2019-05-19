@@ -13,7 +13,7 @@ class PlotTabWidget(QWidget):
         self.plot1 = tabWidget()
         self.plot2 = tabWidget()
         self.plot3 = tabWidget()
-        self.plot4 = tabWidget()
+
 
         # Initialize tab screen
         self.tabs = QTabWidget()
@@ -36,7 +36,7 @@ class PlotTabWidget(QWidget):
         self.tabs.addTab(self.plot1, "Tab 1")
         self.tabs.addTab(self.plot2, "Tab 2")
         self.tabs.addTab(self.plot3, "Tab 3")
-        self.tabs.addTab(self.plot4, "Tab 4")
+
 
         self.layout = QVBoxLayout(self)
         # Add tabs to widget

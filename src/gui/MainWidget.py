@@ -62,6 +62,11 @@ class MainWidget(QWidget):
         self.basicModel.exportFigToPNG('bModel.png')
         self.basicModel.exportTrajectoriesFigToPNG('bModel_tr.png')
 
+        V,P = self.basicModel.makeDataForSimulationPlot()
+
+        self.tabPanel.plot1.plotPopulation.plot(self.basicModel.time ,V, P )
+        self.tabPanel.plot1.plotPhaze.plot(V, P,self.basicModel.initialCondition[0],self.basicModel.initialCondition[1])
+
 
         self.LCModel = LV_LimitedCaptionModel()
         self.LCModel.setInitialConditions(self.leftPanel.initNums.VNumber.value(),
@@ -77,6 +82,12 @@ class MainWidget(QWidget):
 
         self.LCModel.exportFigToPNG('lcModel.png')
         self.LCModel.exportTrajectoriesFigToPNG('lcModel_tr.png')
+
+        V, P = self.LCModel.makeDataForSimulationPlot()
+
+        self.tabPanel.plot2.plotPopulation.plot(self.LCModel.time, V, P)
+        self.tabPanel.plot2.plotPhaze.plot(V, P, self.LCModel.initialCondition[0],
+                                           self.LCModel.initialCondition[1])
 
 
         self.OFModel = LV_OutsideFactorModel()
@@ -96,4 +107,9 @@ class MainWidget(QWidget):
         self.OFModel.exportFigToPNG('ofModel.png')
         self.OFModel.exportTrajectoriesFigToPNG('ofModel_tr.png')
 
+        V, P = self.OFModel.makeDataForSimulationPlot()
+
+        self.tabPanel.plot3.plotPopulation.plot(self.OFModel.time, V, P)
+        self.tabPanel.plot3.plotPhaze.plot(V, P, self.OFModel.initialCondition[0],
+                                           self.OFModel.initialCondition[1])
 

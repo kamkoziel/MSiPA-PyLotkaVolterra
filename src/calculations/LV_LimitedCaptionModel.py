@@ -73,7 +73,7 @@ class LV_LimitedCaptionModel(LV_BasicModel):
 
     def exportFigToPNG(self,fileName):
         X = self.createSimulation()
-        rabbits, foxes = X.T
+        rabbits, foxes = self.makeDataForSimulationPlot()
         f1 = p.figure()
         p.plot(self.time, rabbits, 'r-', label='Rabbits')
         p.plot(self.time, foxes, 'b-', label='Foxes')

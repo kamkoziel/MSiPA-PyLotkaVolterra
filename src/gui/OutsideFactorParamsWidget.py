@@ -28,7 +28,7 @@ class OutsideFactorParamsWidget(QWidget):
     def initUI(self):
         # elements declarations
         self.victimsFactor = QDoubleSpinBox()
-        self.victimsFactor.setValue(10)
+        self.victimsFactor.setValue(4)
         self.victimsFactor.setMaximum(100)
         self.victimsFactor.setMinimum(-100)
         self.victimsFactor.setStyleSheet("background-color: #2d3847; color: white")

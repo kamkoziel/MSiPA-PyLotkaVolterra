@@ -3,12 +3,6 @@ from scipy.integrate.odepack import odeint
 import pylab as p
 
 
-#    TODO  |
-#         \/
-#     generowanie wykresu fazowego
-
-
-
 
 class LV_BasicModel():
     #initialCondition: np.ndarray
@@ -22,7 +16,10 @@ class LV_BasicModel():
         self.r, self.s, self.a, self.b = r,s,a,b
         self.time = np.linspace(0, 1000, 100)
         self.initialCondition = np.array([10, 5])
-
+        #self.e = 0.1
+        self.a= 0.1
+        self.b = 0.008
+        self.c = 0.1
         # stability points where right side of expr is equal 0
         self.X_f0 = np.array([0., 0.])
         self.X_f1 = np.array([self.s / (self.b * self.a), self.r / self.a])
@@ -38,8 +35,10 @@ class LV_BasicModel():
         self.X_f1 = np.array([self.s / (self.b * self.a), self.r / self.a])
 
     def dX_dt(self, X, t=0):
+        # return np.array([self.a * X[0] - self.b * X[0] * X[1],
+        #              -self.c * X[1] + self.e * self.a * X[0] * X[1]])
         return np.array([self.r * X[0] - self.a * X[0] * X[1],
-                      -self.s * X[1] + self.b * self.a * X[0] * X[1]])
+                    -self.s * X[1] + self.b * self.a * X[0] * X[1]])
 
     def d2X_dt2(self, X, t=0):
         """ Return the Jacobian matrix evaluated in X. """
@@ -91,7 +90,6 @@ class LV_BasicModel():
         # vcolors = p.cm.autumn_r(linspace(0.3, 1., len(values)))  # colors for each trajectory
 
         f2 = p.figure()
-
         # -------------------------------------------------------
         # plot trajectories
         #for v, col in zip(values, vcolors):

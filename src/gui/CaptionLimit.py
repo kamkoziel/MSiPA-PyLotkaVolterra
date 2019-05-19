@@ -28,7 +28,7 @@ class CaptionLimitWidget(QWidget):
     def initUI(self):
         # elements declarations
         self.CaptionLimitSpinBox = QSpinBox()
-        self.CaptionLimitSpinBox.setValue(10)
+        self.CaptionLimitSpinBox.setValue(100)
         self.CaptionLimitSpinBox.setMaximum(1000)
         self.CaptionLimitSpinBox.setStyleSheet("background-color: #2d3847; color: white")
 

@@ -8,7 +8,6 @@ from src.calculations.LV_BasicModel import LV_BasicModel
 TODO generowanie wykresu fazowego
 
 """
-#TODO check it all is posible to good work
 
 
 class LV_OutsideFactorModel(LV_BasicModel):
