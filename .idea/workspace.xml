@@ -1,0 +1,791 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="7f9b7a52-37aa-4806-9222-73b4e791a09b" name="Default Changelist" comment="state alpha version, before refractoring">
+      <change afterPath="$PROJECT_DIR$/src/calculations/LV_Model.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/gui/SubwindowsWidgets/SaveDataWidget.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/tests/lv_modelUtilsTest.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/utils/LV_ModelUtils.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/calculations/LV_BasicModel.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/calculations/LV_BasicModel.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/calculations/LV_LimitedCaptionModel.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/calculations/LV_LimitedCaptionModel.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/calculations/LV_OutsideFactorModel.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/calculations/LV_OutsideFactorModel.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/BasicParams.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/BasicModelParamsWidget.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/CaptionLimit.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/LimitCaptionModelParamsWidget.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/InitNumberSpinBoxes.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/InitNumberWidget.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/LeftPanel.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/LeftPanel.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/MainWidget.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/MainWidget.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/MainWindow.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/MainWindow.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/OutsideFactorParamsWidget.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/OutsideFactorModelParamsWidget.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/PlotTabWidget.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/PlotTabWidget.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/tabWidget.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/TabWidget.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/plots/PlotPhazeFig.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/plots/PlotPhazeFig.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/plots/plotCanvas.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/plots/plotCanvas.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/plots/plotPopulationEvolution.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/plots/plotPopulationEvolution.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/setup.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/setup.py" afterDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FavoritesManager">
+    <favorites_list name="MPiSA-LVModel" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/setup.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="238">
+              <caret line="14" selection-start-line="14" selection-end-line="14" />
+              <folding>
+                <element signature="e#0#10#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/gui/MainWindow.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="380">
+              <caret line="75" selection-start-line="75" selection-end-line="75" />
+              <folding>
+                <element signature="e#0#86#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/gui/MainWidget.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="99">
+              <caret line="57" column="37" lean-forward="true" selection-start-line="57" selection-start-column="37" selection-end-line="57" selection-end-column="37" />
+              <folding>
+                <element signature="e#0#60#0" expanded="true" />
+                <element signature="e#702#873#0" />
+                <element signature="e#905#1393#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/calculations/LV_OutsideFactorModel.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1037">
+              <caret line="77" column="35" lean-forward="true" selection-start-line="77" selection-start-column="35" selection-end-line="77" selection-end-column="35" />
+              <folding>
+                <element signature="e#0#18#0" expanded="true" />
+                <element signature="e#476#694#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/calculations/LV_Model.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="592">
+              <caret line="47" lean-forward="true" selection-start-line="47" selection-end-line="47" />
+              <folding>
+                <element signature="e#0#39#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/gui/SubwindowsWidgets/SaveDataWidget.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="263">
+              <caret line="109" column="17" selection-start-line="109" selection-start-column="17" selection-end-line="109" selection-end-column="17" />
+              <folding>
+                <element signature="e#0#82#0" expanded="true" />
+                <element signature="e#563#1703#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>3</find>
+    </findStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="f4aec86f201ab79032f83e5fce97ca9f58586970" />
+      </map>
+    </option>
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/src/gui/InitNumberSpinBox.py" />
+        <option value="$PROJECT_DIR$/src/gui/FundamentalsParams.py" />
+        <option value="$PROJECT_DIR$/src/calculations/LVLimitedCaptionModel.py" />
+        <option value="$PROJECT_DIR$/src/calculations/LVmodel.py" />
+        <option value="$PROJECT_DIR$/src/calculations/LV_model.py" />
+        <option value="$PROJECT_DIR$/src/gui/SetTimeWidget.py" />
+        <option value="$PROJECT_DIR$/src/gui/PlotTabWidget.py" />
+        <option value="$PROJECT_DIR$/src/gui/tabWidget.py" />
+        <option value="$PROJECT_DIR$/../ProjektPomocnicze/LV_Python.py" />
+        <option value="$PROJECT_DIR$/src/setup.py" />
+        <option value="$PROJECT_DIR$/src/gui/InitNumberSpinBoxes.py" />
+        <option value="$PROJECT_DIR$/src/gui/BasicParams.py" />
+        <option value="$PROJECT_DIR$/src/gui/OutsideFactorParamsWidget.py" />
+        <option value="$PROJECT_DIR$/src/gui/LeftPanel.py" />
+        <option value="$PROJECT_DIR$/src/gui/CaptionLimit.py" />
+        <option value="$PROJECT_DIR$/src/gui/BasicModelParamsWidget.py" />
+        <option value="$PROJECT_DIR$/src/gui/InitNumberWidget.py" />
+        <option value="$PROJECT_DIR$/src/utils/LV_ModelUtils.py" />
+        <option value="$PROJECT_DIR$/src/tests/lv_modelUtilsTest.py" />
+        <option value="$PROJECT_DIR$/src/plots/plotPopulationEvolution.py" />
+        <option value="$PROJECT_DIR$/src/gui/MainWidget.py" />
+        <option value="$PROJECT_DIR$/src/calculations/LV_BasicModel.py" />
+        <option value="$PROJECT_DIR$/src/calculations/LV_LimitedCaptionModel.py" />
+        <option value="$PROJECT_DIR$/src/plots/PlotPhazeFig.py" />
+        <option value="$PROJECT_DIR$/src/plots/plotCanvas.py" />
+        <option value="$PROJECT_DIR$/src/gui/MainWindow.py" />
+        <option value="$PROJECT_DIR$/src/calculations/LV_Model.py" />
+        <option value="$PROJECT_DIR$/src/calculations/LV_OutsideFactorModel.py" />
+        <option value="$PROJECT_DIR$/src/gui/SubwindowsWidgets/SaveDataWidget.py" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds">
+    <option name="x" value="953" />
+    <option name="width" value="974" />
+    <option name="height" value="1047" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="MPiSA-LVModel" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MPiSA-LVModel" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MPiSA-LVModel" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MPiSA-LVModel" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MPiSA-LVModel" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MPiSA-LVModel" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="calculations" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MPiSA-LVModel" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MPiSA-LVModel" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="gui" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MPiSA-LVModel" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MPiSA-LVModel" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="gui" type="462c0819:PsiDirectoryNode" />
+              <item name="SubwindowsWidgets" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MPiSA-LVModel" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MPiSA-LVModel" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="plots" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MPiSA-LVModel" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MPiSA-LVModel" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="utils" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../ProjektPomocnicze/LV_Python.py" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Python.setup">
+    <configuration name="LV_Python" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="MPiSA-LVModel" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/../ProjektPomocnicze" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/../ProjektPomocnicze/LV_Python.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="lv_modelUtilsTest" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="MPiSA-LVModel" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src/tests" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/tests/lv_modelUtilsTest.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="setup" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="MPiSA-LVModel" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/setup.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.setup" />
+        <item itemvalue="Python.lv_modelUtilsTest" />
+        <item itemvalue="Python.LV_Python" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="7f9b7a52-37aa-4806-9222-73b4e791a09b" name="Default Changelist" comment="" />
+      <created>1556463635752</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1556463635752</updated>
+    </task>
+    <task id="LOCAL-00001" summary="Initial commit">
+      <created>1556466056793</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1556466056793</updated>
+    </task>
+    <task id="LOCAL-00002" summary="plots in widget - tabWidget">
+      <created>1556478579030</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1556478579030</updated>
+    </task>
+    <task id="LOCAL-00003" summary="LV model -&gt;&gt; right generates populations plot&#10;Button -&gt;&gt; on click generate plot to .PNG file">
+      <created>1557346650700</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1557346650701</updated>
+    </task>
+    <task id="LOCAL-00004" summary="cd">
+      <created>1557346674283</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1557346674283</updated>
+    </task>
+    <task id="LOCAL-00005" summary="change label text in params labels on right">
+      <created>1557348757903</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1557348757903</updated>
+    </task>
+    <task id="LOCAL-00006" summary="rename file LVmodel -&gt; LV_BasicModel&#10;add extends to LV_LimitedCaptionModel&#10;cleaned code from not important coments and imports">
+      <created>1557421953404</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1557421953404</updated>
+    </task>
+    <task id="LOCAL-00007" summary="created all LV model's modifications&#10;changed in file and class names&#10;completed gui -&gt; it can by better">
+      <created>1557784281357</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1557784281358</updated>
+    </task>
+    <task id="LOCAL-00008" summary="making a plots views in program window">
+      <created>1558292989406</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1558292989406</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
+    <servers />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="953" y="0" width="974" height="1047" extended-state="0" />
+    <editor active="true" />
+    <layout>
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49503312" visible="true" weight="0.19605696" />
+      <window_info id="Structure" order="1" sideWeight="0.5049669" side_tool="true" weight="0.14186667" />
+      <window_info id="Favorites" order="2" sideWeight="0.50084037" side_tool="true" weight="0.27929902" />
+      <window_info id="DB Browser" order="3" weight="0.32968238" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" sideWeight="0.49973333" weight="0.32998884" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.496" weight="0.2251951" />
+      <window_info active="true" anchor="bottom" id="Debug" order="3" sideWeight="0.720701" visible="true" weight="0.4054054" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.49973333" weight="0.17502788" />
+      <window_info anchor="bottom" id="Version Control" order="7" sideWeight="0.49973333" weight="0.32664436" />
+      <window_info anchor="bottom" id="DB Execution Console" order="8" />
+      <window_info anchor="bottom" id="Terminal" order="9" sideWeight="0.4992" weight="0.36789298" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.27929902" side_tool="true" visible="true" weight="0.4054054" />
+      <window_info anchor="bottom" id="Python Console" order="11" sideWeight="0.7296" weight="0.32998884" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="JuliaSciView" order="3" />
+    </layout>
+    <layout-to-restore>
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49750414" visible="true" weight="0.1744" />
+      <window_info id="Structure" order="1" sideWeight="0.5024958" side_tool="true" weight="0.1712" />
+      <window_info id="Favorites" order="2" sideWeight="0.50084037" side_tool="true" weight="0.27929902" />
+      <window_info id="DB Browser" order="3" weight="0.32968238" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32998884" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49835706" visible="true" weight="0.18729097" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.17502788" />
+      <window_info anchor="bottom" id="Version Control" order="7" weight="0.32664436" />
+      <window_info anchor="bottom" id="DB Execution Console" order="8" />
+      <window_info anchor="bottom" id="Terminal" order="9" weight="0.15653153" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50164294" side_tool="true" weight="0.14301802" />
+      <window_info anchor="bottom" id="Python Console" order="11" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="JuliaSciView" order="3" />
+    </layout-to-restore>
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="RECENTLY_FILTERED_USER_GROUPS">
+                <collection />
+              </option>
+              <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+                <collection />
+              </option>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="extended" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+              <option name="COLUMN_ORDER">
+                <list>
+                  <option value="0" />
+                  <option value="1" />
+                  <option value="2" />
+                  <option value="3" />
+                </list>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="RECENT_FILTERS">
+      <map>
+        <entry key="Branch">
+          <value>
+            <list>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="extended" />
+                </option>
+              </RecentGroup>
+            </list>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Initial commit" />
+    <MESSAGE value="plots in widget - tabWidget" />
+    <MESSAGE value="LV model -&gt;&gt; right generates populations plot&#10;Button -&gt;&gt; on click generate plot to .PNG file" />
+    <MESSAGE value="cd" />
+    <MESSAGE value="change label text in params labels on right" />
+    <MESSAGE value="rename file LVmodel -&gt; LV_BasicModel&#10;add extends to LV_LimitedCaptionModel&#10;cleaned code from not important coments and imports" />
+    <MESSAGE value="created all LV model's modifications&#10;changed in file and class names&#10;completed gui -&gt; it can by better" />
+    <MESSAGE value="making a plots views in program window" />
+    <option name="LAST_COMMIT_MESSAGE" value="making a plots views in program window" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <default-breakpoints>
+        <breakpoint type="python-exception">
+          <properties notifyOnTerminate="true" exception="BaseException">
+            <option name="notifyOnTerminate" value="true" />
+          </properties>
+        </breakpoint>
+      </default-breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/calculations/LVmodel" />
+    <entry file="file://$PROJECT_DIR$/../ProjektPomocnicze/lotka-volterra/lotka_volterra.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" column="18" lean-forward="true" selection-start-line="12" selection-start-column="18" selection-end-line="12" selection-end-column="18" />
+          <folding>
+            <element signature="e#111#129#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.PyCharmCE2019.1/system/python_stubs/-1253607490/PyQt5/QtWidgets/QHBoxLayout.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="793">
+          <caret line="58" column="8" selection-start-line="58" selection-start-column="8" selection-end-line="58" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.PyCharmCE2019.1/system/python_stubs/-1253607490/PyQt5/QtWidgets/QWidget.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="185">
+          <caret line="526" column="8" selection-start-line="526" selection-start-column="8" selection-end-line="526" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gui/SetTimeWidget.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="33" column="37" lean-forward="true" selection-start-line="33" selection-start-column="37" selection-end-line="33" selection-end-column="37" />
+          <folding>
+            <element signature="e#0#44#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gui/PlotTabWidget.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" column="22" selection-start-line="12" selection-start-column="22" selection-end-line="12" selection-end-column="22" />
+          <folding>
+            <element signature="e#0#73#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/venv/Lib/site-packages/numpy/lib/function_base.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1105">
+          <caret line="4182" selection-start-line="4182" selection-end-line="4182" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../ProjektPomocnicze/LV_Python.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="353">
+          <caret line="65" column="8" selection-start-line="65" selection-start-column="8" selection-end-line="65" selection-end-column="8" />
+          <folding>
+            <element signature="e#0#19#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gui/OutsideFactorModelParamsWidget.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="782">
+          <caret line="47" selection-start-line="47" selection-end-line="47" />
+          <folding>
+            <element signature="e#0#50#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gui/BasicModelParamsWidget.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="35" column="55" selection-start-line="35" selection-start-column="55" selection-end-line="35" selection-end-column="55" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.PyCharmCE2019.1/system/python_stubs/-2100397570/PyQt5/QtCore/QCoreApplication.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1595">
+          <caret line="141" column="8" selection-start-line="141" selection-start-column="8" selection-end-line="141" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/tests/razDwaTrzy.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/utils/LV_ModelUtils.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="14" column="25" selection-start-line="14" selection-start-column="25" selection-end-line="14" selection-end-column="25" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/tests/lv_modelUtilsTest.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="10" column="27" selection-start-line="10" selection-start-column="27" selection-end-line="10" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gui/LeftPanel.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="569">
+          <caret line="55" column="33" selection-start-line="55" selection-start-column="33" selection-end-line="55" selection-end-column="33" />
+          <folding>
+            <element signature="e#0#57#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gui/LimitCaptionModelParamsWidget.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="331">
+          <caret line="35" column="44" lean-forward="true" selection-start-line="35" selection-start-column="44" selection-end-line="35" selection-end-column="44" />
+          <folding>
+            <element signature="e#0#44#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gui/InitNumberWidget.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="600">
+          <caret line="39" column="22" selection-start-line="39" selection-start-column="13" selection-end-line="39" selection-end-column="30" />
+          <folding>
+            <element signature="e#0#44#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gui/TabWidget.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="13" lean-forward="true" selection-start-line="13" selection-end-line="13" />
+          <folding>
+            <element signature="e#1#74#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/plots/plotPopulationEvolution.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="64" lean-forward="true" selection-start-line="9" selection-start-column="64" selection-end-line="9" selection-end-column="64" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/plots/PlotPhazeFig.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="154">
+          <caret line="10" selection-start-line="10" selection-end-line="10" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gui/MainWindow.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="380">
+          <caret line="75" selection-start-line="75" selection-end-line="75" />
+          <folding>
+            <element signature="e#0#86#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/calculations/LV_LimitedCaptionModel.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-123">
+          <caret line="52" column="23" selection-start-line="52" selection-start-column="23" selection-end-line="52" selection-end-column="23" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/venv/Lib/site-packages/scipy/integrate/odepack.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="388">
+          <caret line="247" selection-start-line="247" selection-end-line="247" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/calculations/LV_BasicModel.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1088">
+          <caret line="64" column="33" lean-forward="true" selection-start-line="64" selection-start-column="33" selection-end-line="64" selection-end-column="33" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/plots/plotCanvas.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="17" column="19" lean-forward="true" selection-start-line="17" selection-start-column="19" selection-end-line="17" selection-end-column="19" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gui/MainWidget.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="99">
+          <caret line="57" column="37" lean-forward="true" selection-start-line="57" selection-start-column="37" selection-end-line="57" selection-end-column="37" />
+          <folding>
+            <element signature="e#0#60#0" expanded="true" />
+            <element signature="e#702#873#0" />
+            <element signature="e#905#1393#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/calculations/LV_OutsideFactorModel.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1037">
+          <caret line="77" column="35" lean-forward="true" selection-start-line="77" selection-start-column="35" selection-end-line="77" selection-end-column="35" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+            <element signature="e#476#694#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/calculations/LV_Model.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="592">
+          <caret line="47" lean-forward="true" selection-start-line="47" selection-end-line="47" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/setup.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" selection-start-line="14" selection-end-line="14" />
+          <folding>
+            <element signature="e#0#10#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gui/SubwindowsWidgets/SaveDataWidget.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="263">
+          <caret line="109" column="17" selection-start-line="109" selection-start-column="17" selection-end-line="109" selection-end-column="17" />
+          <folding>
+            <element signature="e#0#82#0" expanded="true" />
+            <element signature="e#563#1703#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>

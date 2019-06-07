@@ -2,6 +2,7 @@ from PyQt5.QtWidgets import QSizePolicy
 
 from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg as FigureCanvas
 from matplotlib.figure import Figure
+from abc import abstractmethod
 
 class PlotCanvas(FigureCanvas):
 
@@ -9,19 +10,13 @@ class PlotCanvas(FigureCanvas):
         fig = Figure(figsize=(width, height), dpi=dpi)
         self.axes = fig.add_subplot(111)
 
-
         FigureCanvas.__init__(self, fig)
         self.setParent(parent)
 
         FigureCanvas.setSizePolicy(self, QSizePolicy.Expanding, QSizePolicy.Expanding)
 
-
         self.plot()
 
-
-    def plot(self):
-        data = [i for i in range(25)]
-        ax = self.figure.add_subplot(111)
-        ax.plot(data, 'r-')
-        ax.set_title('PyQt Matplotlib Example')
-        self.draw()
+    @abstractmethod
+    def plot(self, time, V, P):
+        pass

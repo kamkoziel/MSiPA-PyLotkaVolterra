@@ -4,8 +4,7 @@ from src.gui.MainWindow import App
 
 # TODO
 #  - zmiana nazw klas i plikow
-#  - wyswietlanie wykresow w oknie
-#  - oznaczenie punktu stabilnosci na wykresie
+#  - oznaczenie punktu stabilnosci na wykresie fazowym model własny
 #  - dokumentacja (Sphinx)
 #  - analiza wyników
 #  - sprawozdanie + prezentacja

@@ -2,38 +2,52 @@ import numpy as np
 from numpy.core._multiarray_umath import ndarray
 from scipy.integrate.odepack import odeint
 import pylab as p
-from src.calculations.LV_BasicModel import LV_BasicModel
+from src.calculations.LV_Model import LV_Model
 """
 TODO generowanie wykresu fazowego
 
 """
 
-class LV_LimitedCaptionModel(LV_BasicModel):
+class LV_LimitedCaptionModel(LV_Model):
     X_f0: ndarray
     X_f1: ndarray
     X_f2: ndarray
 
     #initialCondition: np.ndarray
 
-    def __init__(self,r = 1, s = 0.1,a = 1.5,b = 0.75, K=900):
+    def __init__(self,**kwargs):
+        super().__init__()
 
-        self.r, self.s, self.a, self.b ,self.K = r,s,a,b,K
+        if ('r' and 's' and 'a' and 'b' and 'K') in kwargs:
+            self.r = kwargs['r']
+            self.a = kwargs['a']
+            self.b = kwargs['b']
+            self.s = kwargs['s']
+            self.K = kwargs['K']
+        else:
+            self.r = 2
+            self.s = 0.01
+            self.a = 0.08
+            self.b = 0.1
+            self.K = 100
+
         self.time = np.linspace(0, 1000, 100)
         self.initialCondition = np.array([10, 5])
 
         # stability points where right side of expr is equal 0
         self.X_f0 = np.array([0., 0.])
-        self.X_f1 = np.array([K,0])
+        self.X_f1 = np.array([self.K,0])
         self.X_f2 = np.array([self.s / (self.b * self.a),
-                              (self.r*self.s-self.K*self.a*self.b*self.r)/ (self.K*self.a**2*self.b)])
+                              -(self.r*self.s-self.K*self.a*self.b*self.r)/ (self.K*self.a**2*self.b)])
 
-
-    def setParamsValues(self,r,s,a,b,K):
-        self.r = r
-        self.s = s
-        self.a = a
-        self.b = b
-        self.K = K
+    def setParamsValues(self, **kwargs):
+        self.r = kwargs['r']
+        self.s = kwargs['s']
+        self.a = kwargs['a']
+        self.b = kwargs['b']
+        self.K = kwargs['K']
+        self.X_f2 = np.array([self.s / (self.b * self.a),
+                              -(self.r * self.s - self.K * self.a * self.b * self.r) / (self.K * self.a ** 2 * self.b)])
 
     #not important propably for drop
     def switch_state_point(self,pointNum):
@@ -66,14 +80,14 @@ class LV_LimitedCaptionModel(LV_BasicModel):
         X, infodict = odeint(self.dX_dt, self.initialCondition, self.time, full_output=True)
         return X
 
-    def makeDataForSimulationPlot(self):
+    def getPopulationsData(self):
         X = self.createSimulation()
         victims, predators = X.T
         return victims, predators
 
     def exportFigToPNG(self,fileName):
         X = self.createSimulation()
-        rabbits, foxes = self.makeDataForSimulationPlot()
+        rabbits, foxes = self.getPopulationsData()
         f1 = p.figure()
         p.plot(self.time, rabbits, 'r-', label='Rabbits')
         p.plot(self.time, foxes, 'b-', label='Foxes')
@@ -86,8 +100,6 @@ class LV_LimitedCaptionModel(LV_BasicModel):
 
     def exportTrajectoriesFigToPNG(self, filename):
         f2 = p.figure()
-
-        # -------------------------------------------------------
         # plot trajectories
         # for v, col in zip(values, vcolors):
         X0 = self.X_f1  # starting point

@@ -1,37 +1,47 @@
 import numpy as np
 from scipy.integrate.odepack import odeint
+from src.calculations.LV_Model import LV_Model
 import pylab as p
 
 
 
-class LV_BasicModel():
+class LV_BasicModel(LV_Model):
     #initialCondition: np.ndarray
 
-    def __init__(self,r = 1, s = 0.1,a = 1.5,b = 0.75):
+    def __init__(self, **kwargs):
+        super().__init__()
+
         # self.r  # victims reproduce                               a
         # self.s  # predators death                                 c
         # self.a  # hunting efficiency                              b
         # self.b  # part of huntedVictims for predatorReproduce     d
 
-        self.r, self.s, self.a, self.b = r,s,a,b
+        if ('r' and 's' and 'a' and 'b') in kwargs:
+            self.r = kwargs['r']
+            self.a = kwargs['a']
+            self.b = kwargs['b']
+            self.s = kwargs['s']
+        else:
+            self.r = 2
+            self.s = 0.01
+            self.a = 0.08
+            self.b = 0.1
+
         self.time = np.linspace(0, 1000, 100)
         self.initialCondition = np.array([10, 5])
-        #self.e = 0.1
-        self.a= 0.1
-        self.b = 0.008
-        self.c = 0.1
         # stability points where right side of expr is equal 0
         self.X_f0 = np.array([0., 0.])
         self.X_f1 = np.array([self.s / (self.b * self.a), self.r / self.a])
 
-    def setParamsValues(self,r,s,a,b):
-        self.r = r
-        self.s = s
-        self.a = a
-        self.b = b
+    def setParamsValues(self, **kwargs):
+        self.r = kwargs['r']
+        self.s = kwargs['s']
+        self.a = kwargs['a']
+        self.b = kwargs['b']
+        self.X_f1 = np.array([self.s / (self.b * self.a), self.r / self.a])
 
-    def updateStabilityPoints(self,r,s,a,b):
-        self.setParamsValues(r,s,a,b)
+    def updateStabilityPoints(self,**kwargs):
+        self.setParamsValues(r=kwargs['r'],s=kwargs['s'],a=kwargs['a'],b=kwargs['b'])
         self.X_f1 = np.array([self.s / (self.b * self.a), self.r / self.a])
 
     def dX_dt(self, X, t=0):
@@ -45,29 +55,11 @@ class LV_BasicModel():
         return np.array([[self.r - self.a * X[1], - self.a * X[0]],
                       [self.a * self.b * X[1], -self.s + self.a * self.b * X[0]]])
 
-    def setSimulationTime(self, start=0, stop=1000, samplesNumber=1000):
-        """
-        py:method:: def setSimulationTime(self,start = 0, stop =1000, samplesNumber = 1000)
-
-        method set the time of simulation its important when we creating a plots od ODE resolve
-
-        :param int start: start point of simulation
-        :param int stop: end point of simulation
-        :param int samplesNumber: number of element
-        :return: ndarray
-        """
-        self.time = np.linspace(start, stop, samplesNumber)
-        return self.time
-
-    def setInitialConditions(self, V=10, P=5):
-        self.initialCondition = np.array([V, P])
-        return self.initialCondition
-
     def createSimulation(self):
         X, infodict = odeint(self.dX_dt, self.initialCondition, self.time, full_output=True)
         return X
 
-    def makeDataForSimulationPlot(self):
+    def getPopulationsData(self):
         X = self.createSimulation()
         victims, predators = X.T
         return victims, predators
@@ -85,14 +77,9 @@ class LV_BasicModel():
         p.title('Evolution of fox and rabbit populations')
         f1.savefig(fileName)
 
-    def exportTrajectoriesFigToPNG(self, filename):
-        # values = linspace(0.3, 0.9, 5)  # position of X0 between X_f0 and X_f1
-        # vcolors = p.cm.autumn_r(linspace(0.3, 1., len(values)))  # colors for each trajectory
-
+    def exportTrajectoriesFigToPNG(self, filename: str):
         f2 = p.figure()
-        # -------------------------------------------------------
-        # plot trajectories
-        #for v, col in zip(values, vcolors):
+
         X0 = self.X_f1  # starting point
         X = odeint(self.dX_dt, self.initialCondition , self.time)  # we don't need infodict here
         p.plot(X[:, 0], X[:, 1], lw=3.5, label='X0=(%.f, %.f)' % (self.initialCondition[0], self.initialCondition[1]))
