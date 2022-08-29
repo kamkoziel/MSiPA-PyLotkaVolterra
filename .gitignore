@@ -4,6 +4,6 @@
 .idea
 *.png
 *.img
-/dist/
+src/dist/
 
 **/__pycache__/
