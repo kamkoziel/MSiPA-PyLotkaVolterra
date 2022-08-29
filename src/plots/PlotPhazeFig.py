@@ -40,11 +40,11 @@ class PlotPhazeFig(PlotCanvas):
         x = np.linspace(0, xmax, nb_points)
         y = np.linspace(0, ymax, nb_points)
 
-        X1, Y1 = np.meshgrid(x, y)  # create a grid
-        DX1, DY1 = modelLV.dX_dt([X1, Y1])  # compute growth rate on the gridt
-        M = (np.hypot(DX1, DY1))  # Norm of the growth rate
-        M[M == 0] = 1.  # Avoid zero division errors
-        DX1 /= M  # Normalize each arrows
+        X1, Y1 = np.meshgrid(x, y)
+        DX1, DY1 = modelLV.dX_dt([X1, Y1])
+        M = (np.hypot(DX1, DY1))
+        M[M == 0] = 1.
+        DX1 /= M
         DY1 /= M
 
         self.ax.set_title('Wykres fazowy  i trajektorie')

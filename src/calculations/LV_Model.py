@@ -29,17 +29,8 @@ class LV_Model(object):
         self.initialCondition = np.array([V, P])
         return self.initialCondition
 
-    def setSimulationTime(self, start=0, stop=1000, samplesNumber=1000):
-        """
-        py:method:: def setSimulationTime(self,start = 0, stop =1000, samplesNumber = 1000)
+    def setSimulationTime(self, start=0, stop=100, samplesNumber=1000):
 
-        method set the time of simulation its important when we creating a plots od ODE resolve
-
-        :param int start: start point of simulation
-        :param int stop: end point of simulation
-        :param int samplesNumber: number of element
-        :return: ndarray
-        """
         self.time = np.linspace(start, stop, samplesNumber)
         return self.time
 

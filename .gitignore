@@ -1,5 +1,9 @@
 /venv/
 /env/
 /.idea/
+.idea
 *.png
 *.img
+/dist/
+
+**/__pycache__/

@@ -22,9 +22,7 @@ class App(QMainWindow):
         self.setWindowTitle(self.title)
         self.setGeometry(self.left, self.top, self.width, self.height)
 
-        saveFile = QAction(QIcon('save.png'), '&Save', self)
-        saveFile.setStatusTip('Save application')
-        saveFile.triggered.connect(qApp.quit)
+
         exitAct = QAction(QIcon('exit.png'), '&Exit', self)
         exitAct.setShortcut('Ctrl+Q')
         exitAct.setStatusTip('Exit application')
@@ -34,6 +32,7 @@ class App(QMainWindow):
         addData.setStatusTip('Add set of data from file')
         addData.triggered.connect(self.AddDataToPlots)
         saveData = QAction(QIcon('save.png'), 'Save Data', self)
+        saveData.setStatusTip('Save data to .xlsx file')
         saveData.triggered.connect(self.openSaveDialog)
 
         self.statusBar().showMessage('Ready')
@@ -46,11 +45,10 @@ class App(QMainWindow):
         menubar = self.menuBar()
         self.menuBar().setStyleSheet("background-color: #2d3847; color: white;")
         fileMenu = menubar.addMenu('&File')
-        fileMenu.addAction(saveFile)
-        fileMenu.addAction(addData)
+
         fileMenu.addAction(exitAct)
         dataMenu = menubar.addMenu('&Data')
-        dataMenu.addAction(addData)
+        #dataMenu.addAction(addData)
         dataMenu.addAction(saveData)
 
         self.show()

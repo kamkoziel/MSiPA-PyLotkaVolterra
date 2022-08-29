@@ -1,12 +1,6 @@
 from PyQt5.QtWidgets import QSpinBox, QLabel
 from PyQt5.QtWidgets import QWidget, QHBoxLayout, QVBoxLayout
 
-"""
-    
-
-"""
-
-
 class SetTimeWidget(QWidget):
     def __init__(self, parent=None):
         QWidget.__init__(self, parent=parent)

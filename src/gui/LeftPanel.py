@@ -4,11 +4,6 @@ from src.gui.InitNumberWidget import InitNumberSpinBoxes
 from src.gui.BasicModelParamsWidget import BasicParams
 from src.gui.LimitCaptionModelParamsWidget import CaptionLimitWidget
 from src.gui.OutsideFactorModelParamsWidget import OutsideFactorParamsWidget
-"""
-    Class responsible for a own modifications gui elements 
-    in left panel main widget
-"""
-
 
 class LeftPanel(QWidget):
     def __init__(self, parent=None):

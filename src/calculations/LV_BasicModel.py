@@ -11,25 +11,25 @@ class LV_BasicModel(LV_Model):
     def __init__(self, **kwargs):
         super().__init__()
 
-        # self.r  # victims reproduce                               a
-        # self.s  # predators death                                 c
-        # self.a  # hunting efficiency                              b
-        # self.b  # part of huntedVictims for predatorReproduce     d
+        # self.r  # victims reproduce
+        # self.s  # predators death
+        # self.a  # hunting efficiency
+        # self.b  # part of huntedVictims for predatorReproduce
 
         if ('r' and 's' and 'a' and 'b') in kwargs:
-            self.r = kwargs['r']
-            self.a = kwargs['a']
-            self.b = kwargs['b']
-            self.s = kwargs['s']
+            self.r: np.float64 = kwargs['r']
+            self.a: np.float64 = kwargs['a']
+            self.b: np.float64 = kwargs['b']
+            self.s: np.float64 = kwargs['s']
         else:
-            self.r = 2
-            self.s = 0.01
-            self.a = 0.08
-            self.b = 0.1
+            self.r: np.float64 = 2
+            self.s: np.float64 = 0.01
+            self.a: np.float64 = 0.08
+            self.b: np.float64 = 0.1
 
-        self.time = np.linspace(0, 1000, 100)
+        self.time = np.linspace(0, 1000, 100, dtype = np.float64)
         self.initialCondition = np.array([10, 5])
-        # stability points where right side of expr is equal 0
+
         self.X_f0 = np.array([0., 0.])
         self.X_f1 = np.array([self.s / (self.b * self.a), self.r / self.a])
 
@@ -45,18 +45,15 @@ class LV_BasicModel(LV_Model):
         self.X_f1 = np.array([self.s / (self.b * self.a), self.r / self.a])
 
     def dX_dt(self, X, t=0):
-        # return np.array([self.a * X[0] - self.b * X[0] * X[1],
-        #              -self.c * X[1] + self.e * self.a * X[0] * X[1]])
         return np.array([self.r * X[0] - self.a * X[0] * X[1],
-                    -self.s * X[1] + self.b * self.a * X[0] * X[1]])
+                    -self.s * X[1] + self.b * self.a * X[0] * X[1]], dtype = np.float64)
 
     def d2X_dt2(self, X, t=0):
-        """ Return the Jacobian matrix evaluated in X. """
         return np.array([[self.r - self.a * X[1], - self.a * X[0]],
                       [self.a * self.b * X[1], -self.s + self.a * self.b * X[0]]])
 
     def createSimulation(self):
-        X, infodict = odeint(self.dX_dt, self.initialCondition, self.time, full_output=True)
+        X, infodict = odeint(self.dX_dt, self.initialCondition, self.time, full_output=True, Dfun = self.d2X_dt2, )
         return X
 
     def getPopulationsData(self):
@@ -80,26 +77,24 @@ class LV_BasicModel(LV_Model):
     def exportTrajectoriesFigToPNG(self, filename: str):
         f2 = p.figure()
 
-        X0 = self.X_f1  # starting point
-        X = odeint(self.dX_dt, self.initialCondition , self.time)  # we don't need infodict here
+        X0 = self.X_f1
+        X = odeint(self.dX_dt, self.initialCondition , self.time)
         p.plot(X[:, 0], X[:, 1], lw=3.5, label='X0=(%.f, %.f)' % (self.initialCondition[0], self.initialCondition[1]))
         p.plot(X0[0],X0[1],'b.')
         p.plot(self.X_f1[0], self.X_f1[1], 'r.')
 
-        # -------------------------------------------------------
-        # define a grid and compute direction at each point
-        ymax = p.ylim(ymin=0)[1]  # get axis limits
+        ymax = p.ylim(ymin=0)[1]
         xmax = p.xlim(xmin=0)[1]
         nb_points = 30
 
         x = np.linspace(0, xmax, nb_points)
         y = np.linspace(0, ymax, nb_points)
 
-        X1, Y1 = p.meshgrid(x, y)  # create a grid
-        DX1, DY1 = self.dX_dt([X1, Y1])  # compute growth rate on the gridt
-        M = (p.hypot(DX1, DY1))  # Norm of the growth rate
-        M[M == 0] = 1.  # Avoid zero division errors
-        DX1 /= M  # Normalize each arrows
+        X1, Y1 = p.meshgrid(x, y)
+        DX1, DY1 = self.dX_dt([X1, Y1])
+        M = (p.hypot(DX1, DY1))
+        M[M == 0] = 1.
+        DX1 /= M
         DY1 /= M
 
         p.title('Trajectories and direction fields')

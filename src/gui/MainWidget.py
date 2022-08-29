@@ -8,16 +8,6 @@ from src.calculations.LV_BasicModel import LV_BasicModel
 from src.calculations.LV_LimitedCaptionModel import LV_LimitedCaptionModel
 from src.calculations.LV_OutsideFactorModel import LV_OutsideFactorModel
 
-"""
-    Class responsible for a main widget 
-    in application window 
-    Contains: 
-        -left panel fundamental params gui elements
-        -left panel own params gui elements from ownModGui
-
-
-"""
-
 class MainWidget(QWidget):
     def __init__(self):
         super().__init__()
@@ -47,8 +37,6 @@ class MainWidget(QWidget):
         mainLayout.addWidget(self.leftPanel)
         mainLayout.addLayout(VLayout)
 
-
-    #TODO można zastosować fasadę... nawet pasuje
     @pyqtSlot()
     def onClick(self):
         self.basicModel= LV_BasicModel()
