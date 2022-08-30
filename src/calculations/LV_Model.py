@@ -1,13 +1,13 @@
 from abc import ABCMeta, abstractmethod
 import numpy as np
 
-class LV_Model(object):
 
+class LV_Model(object):
     __metaclass__ = ABCMeta
 
-
     def __init__(self, **kwargs):
-        pass
+        self.initialCondition: np.array = None
+        self.time = None
 
     @abstractmethod
     def setParamsValues(self, **kwargs):
@@ -30,7 +30,6 @@ class LV_Model(object):
         return self.initialCondition
 
     def setSimulationTime(self, start=0, stop=100, samplesNumber=1000):
-
         self.time = np.linspace(start, stop, samplesNumber)
         return self.time
 

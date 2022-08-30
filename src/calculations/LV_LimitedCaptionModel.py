@@ -2,7 +2,7 @@ import numpy as np
 from numpy.core._multiarray_umath import ndarray
 from scipy.integrate.odepack import odeint
 import pylab as p
-from src.calculations.LV_Model import LV_Model
+from LV_Model import LV_Model
 
 
 class LV_LimitedCaptionModel(LV_Model):
