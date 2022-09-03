@@ -2,7 +2,7 @@ import numpy as np
 from numpy.core._multiarray_umath import ndarray
 from scipy.integrate.odepack import odeint
 import pylab as p
-from LV_Model import LV_Model
+from calculations.LV_Model import LV_Model
 
 
 class LV_LimitedCaptionModel(LV_Model):
@@ -10,9 +10,9 @@ class LV_LimitedCaptionModel(LV_Model):
     X_f1: ndarray
     X_f2: ndarray
 
-    #initialCondition: np.ndarray
+    # initialCondition: np.ndarray
 
-    def __init__(self,**kwargs):
+    def __init__(self, **kwargs):
         super().__init__()
 
         if ('r' and 's' and 'a' and 'b' and 'K') in kwargs:
@@ -31,11 +31,10 @@ class LV_LimitedCaptionModel(LV_Model):
         self.time = np.linspace(0, 1000, 100)
         self.initialCondition = np.array([10, 5])
 
-
         self.X_f0 = np.array([0., 0.])
-        self.X_f1 = np.array([self.K,0])
+        self.X_f1 = np.array([self.K, 0])
         self.X_f2 = np.array([self.s / (self.b * self.a),
-                              -(self.r*self.s-self.K*self.a*self.b*self.r)/ (self.K*self.a**2*self.b)])
+                              -(self.r * self.s - self.K * self.a * self.b * self.r) / (self.K * self.a ** 2 * self.b)])
 
     def setParamsValues(self, **kwargs):
         self.r = kwargs['r']
@@ -46,21 +45,20 @@ class LV_LimitedCaptionModel(LV_Model):
         self.X_f2 = np.array([self.s / (self.b * self.a),
                               -(self.r * self.s - self.K * self.a * self.b * self.r) / (self.K * self.a ** 2 * self.b)])
 
-    def updateStabilityPoints(self,r,s,a,b,K):
+    def updateStabilityPoints(self, r, s, a, b, K):
 
-        self.setParamsValues(r=r,s=s,a=a,b=b,K=K)
+        self.setParamsValues(r=r, s=s, a=a, b=b, K=K)
         self.X_f1 = np.array([K, 0])
         self.X_f2 = np.array([self.s / (self.b * self.a),
                               (self.r * self.s - self.K * self.a * self.b * self.r) / (self.K * self.a ** 2 * self.b)])
 
     def dX_dt(self, X, t=0):
-        return np.array([self.r * X[0]*(1 - (X[0]/self.K)) - self.a * X[0] * X[1],
-                      -self.s * X[1] + self.b * self.a * X[0] * X[1]])
-
+        return np.array([self.r * X[0] * (1 - (X[0] / self.K)) - self.a * X[0] * X[1],
+                         -self.s * X[1] + self.b * self.a * X[0] * X[1]])
 
     def d2X_dt2(self, X, t=0):
-        return np.array([[(-(2*X[0]-self.K)*self.r+self.K*self.a*X[1])/self.K, - self.a * X[0]],
-                      [self.a * self.b * X[1], -self.s + self.a * self.b * X[0]]])
+        return np.array([[(-(2 * X[0] - self.K) * self.r + self.K * self.a * X[1]) / self.K, - self.a * X[0]],
+                         [self.a * self.b * X[1], -self.s + self.a * self.b * X[0]]])
 
     def createSimulation(self):
         X, infodict = odeint(self.dX_dt, self.initialCondition, self.time, full_output=True)
@@ -71,7 +69,7 @@ class LV_LimitedCaptionModel(LV_Model):
         victims, predators = X.T
         return victims, predators
 
-    def exportFigToPNG(self,fileName):
+    def exportFigToPNG(self, fileName):
         X = self.createSimulation()
         rabbits, foxes = self.getPopulationsData()
         f1 = p.figure()

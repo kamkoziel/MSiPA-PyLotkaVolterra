@@ -35,3 +35,4 @@ class LV_Model(object):
 
     def getSimulationTime(self):
         return self.time
+

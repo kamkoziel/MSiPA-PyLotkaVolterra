@@ -1,10 +1,9 @@
 import numpy as np
 from scipy.integrate.odepack import odeint
-from LV_Model import LV_Model
+from calculations.LV_Model import LV_Model
 import pylab as p
 
 '''
-
         # self.r  # victims reproduce
         # self.s  # predators death
         # self.a  # hunting efficiency
@@ -49,7 +48,7 @@ class LV_BasicModel(LV_Model):
         return np.array([self.r * X[0] - self.a * X[0] * X[1],
                          -self.s * X[1] + self.b * self.a * X[0] * X[1]], dtype=np.float64)
 
-    def d2X_dt2(self, X):
+    def d2X_dt2(self, X, t=0):
         return np.array([[self.r - self.a * X[1], - self.a * X[0]],
                          [self.a * self.b * X[1], -self.s + self.a * self.b * X[0]]])
 
