@@ -1,7 +1,7 @@
-from PyQt5.QtWidgets import QSpinBox, QLabel
-from PyQt5.QtWidgets import QWidget, QVBoxLayout
+from PyQt5.QtWidgets import QSpinBox, QLabel, QWidget, QVBoxLayout
 
-class CaptionLimitWidget(QWidget):
+
+class LimitedCaptionsParamsWidget(QWidget):
     def __init__(self, parent=None):
         QWidget.__init__(self, parent=parent)
         self.left = 10
@@ -20,7 +20,11 @@ class CaptionLimitWidget(QWidget):
         self.CaptionLimitSpinBox.setStyleSheet("background-color: #2d3847; color: white")
 
         # layout of own params gui elements
-        self.initNumVLay = QVBoxLayout(self)
-        self.initNumVLay.addWidget(QLabel(" Pojemność środowiska "))
-        self.initNumVLay.addWidget(self.CaptionLimitSpinBox)
+        self.__layout = QVBoxLayout(self)
+        self.__layout.addWidget(QLabel(" Pojemność środowiska "))
+        self.__layout.addWidget(self.CaptionLimitSpinBox)
 
+
+    @property
+    def layout(self) -> 'QLayout':
+        return self.__layout

@@ -1,11 +1,9 @@
-
-from PyQt5.QtWidgets import QTabWidget, QVBoxLayout, QHBoxLayout, QWidget
-from src.plots.plotCanvas import PlotCanvas
-from src.plots.plotPopulationEvolution import PlotPopulationEvolution
-from src.plots.PlotPhazeFig import PlotPhazeFig
+from PyQt5.QtWidgets import QHBoxLayout, QWidget
+from plots.plotPopulationEvolution import PlotPopulationEvolution
+from plots.PlotPhazeFig import PlotPhazeFig
 
 
-class tabWidget(QWidget):
+class ModelPlotsWidget(QWidget):
     def __init__(self, parent=None):
         QWidget.__init__(self, parent=parent)
 
