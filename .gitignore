@@ -7,3 +7,5 @@
 src/dist/
 
 **/__pycache__/
+src/gui/__pycache__/
+src/plots/__pycache__/
